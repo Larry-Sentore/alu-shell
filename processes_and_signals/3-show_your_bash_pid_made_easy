@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Displaying the bash PID made easier
 
-grep -l "bash"
+pgrep -l "bash"
