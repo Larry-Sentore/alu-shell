@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 #A whole bunch of signals
 
-touch /var/run/myscript.pid
-echo $$ > /var/run/myscript.pid
+sudo ouch /var/run/myscript.pid
+sudo bash -c 'echo $$ > /var/run/myscript.pid'
 
 while true; do
 	echo "To infinity and beyond"
 	sleep 2
-	trap 'echo "I hate this kill command"; rm /var/run/myscript.pid' SIGTERM
+	trap 'echo "I hate this kill command"; sudo rm /var/run/myscript.pid; exit' SIGTERM
 	trap 'echo "Y U no love me?!"' SIGINT
-	trap 'rm /var/run/myscript.pid' SIGQUIT
+	trap 'rm /var/run/myscript.pid; exit' SIGQUIT
 done
