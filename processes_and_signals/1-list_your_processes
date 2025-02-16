@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Display a list of all running processes
 
-find /proc | less
+find /proc
